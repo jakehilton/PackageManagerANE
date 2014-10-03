@@ -45,7 +45,6 @@ package com.gearsandcogs.air.extensions
         }
 
         private function onStatus(e:StatusEvent):void {
-            trace("onStatus event fired");
             var value:Object = e.level;
             try {
                 value = JSON.parse(e.level);
