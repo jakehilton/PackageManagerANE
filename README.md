@@ -47,6 +47,8 @@ Use case is pretty simple::
             pm.getUserApps();
             pm.getSystemApps();
             pm.runApp("com.google.android.GoogleCamera");
+            pm.installApp("com.google.android.SomeApp");
+            pm.uninstallApp("com.google.android.SomeApp");
         }
 
         private function runAppError(e:PackageManagerEvent):void {
