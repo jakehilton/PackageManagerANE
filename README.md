@@ -43,7 +43,6 @@ Use case is pretty simple::
             pm.addEventListener(PackageManagerEvent.GET_SYSTEM_APPS, systemAppsReturned);
             pm.addEventListener(PackageManagerEvent.GET_USER_APPS, userAppsReturned);
             pm.addEventListener(PackageManagerEvent.ERROR_RUN_APP, runAppError);
-            pm.addEventListener(StatusEvent.STATUS, statusFired);
             pm.getUserApps();
             pm.getSystemApps();
             pm.runApp("com.google.android.GoogleCamera");
@@ -58,12 +57,6 @@ Use case is pretty simple::
         private function userAppsReturned(data:PackageManagerEvent):void {
             trace("got the user apps back");
             trace(data.param);
-        }
-
-        private function statusFired(e:StatusEvent):void {
-            trace("status");
-            trace(e.code);
-            trace(e.level);
         }
 
         private function systemAppsReturned(data:PackageManagerEvent):void {
