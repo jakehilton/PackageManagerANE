@@ -5,11 +5,11 @@ Native extension for Adobe AIR that allows for interaction with the Android Pack
 
 It allows for the following:
 
-*Get list of all system applications
-*Get list of all user installed applicaitons
-*Open another application on the device
-*Install application from the app store by id
-*Uninstall application from the device
+* Get list of all system applications
+* Get list of all user installed applicaitons
+* Open another application on the device
+* Install application from the app store by id
+* Uninstall application from the device
 
 Available events:
 
