@@ -8,5 +8,13 @@
                 <initializer>com.gearsandcogs.air.extensions.PackageManagerExtension</initializer>
             </applicationDeployment>
         </platform>
+        <platform name="iPhone-ARM">
+            <applicationDeployment>
+            </applicationDeployment>
+        </platform>
+        <platform name="iPhone-x86">
+            <applicationDeployment>
+            </applicationDeployment>
+        </platform>
     </platforms>
 </extension>

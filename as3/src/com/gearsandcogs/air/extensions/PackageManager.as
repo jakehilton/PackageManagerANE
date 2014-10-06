@@ -34,9 +34,14 @@ package com.gearsandcogs.air.extensions
             extContext.call("InstallApp", app_id);
         }
 
-        public function runApp(app_id:String):void {
+        public function runApp(app_id:String, params:Object = null):void {
             trace("runApp hit");
-            extContext.call("RunApp", app_id);
+            if(params)
+                params = JSON.stringify(params);
+            else
+                params = "{}";
+
+            extContext.call("RunApp", app_id, params);
         }
 
         public function uninstallApp(app_id:String):void {

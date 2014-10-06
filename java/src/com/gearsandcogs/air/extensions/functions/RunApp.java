@@ -19,13 +19,15 @@ public class RunApp implements FREFunction
         Log.d(TAG, "called");
 
         String app_name = "";
+        String json_params = "";
         try {
             app_name = freObjects[0].getAsString();
+            json_params = freObjects[1].getAsString();
         }catch (Exception e) {
             //something bad happened
         }
 
-        if(SystemCalls.runApplication(freContext, app_name)){
+        if(SystemCalls.runApplication(freContext, app_name, json_params)){
             freContext.dispatchStatusEventAsync(PackageManagerEvents.SUCCESS_RUN_APP, app_name);
         } else {
             freContext.dispatchStatusEventAsync(PackageManagerEvents.ERROR_RUN_APP, app_name);

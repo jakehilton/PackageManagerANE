@@ -7,7 +7,7 @@ It allows for the following:
 
 * Get list of all system applications
 * Get list of all user installed applicaitons
-* Open another application on the device
+* Open another application on the device. This also supports passing an object of name/value string properties to be added as extras passed to the launching application
 * Install application from the app store by id
 * Uninstall application from the device
 
@@ -46,12 +46,13 @@ Use case is pretty simple::
             pm.getUserApps();
             pm.getSystemApps();
             pm.runApp("com.google.android.GoogleCamera");
+            pm.runApp("com.google.android.GoogleCamera",<json_string>);
             pm.installApp("com.google.android.SomeApp");
             pm.uninstallApp("com.google.android.SomeApp");
         }
 
         private function runAppError(e:PackageManagerEvent):void {
-            trace("unable to run an event with it: " + e.param);
+            trace("unable to run app: " + e.param);
         }
 
         private function userAppsReturned(data:PackageManagerEvent):void {

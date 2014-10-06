@@ -9,6 +9,7 @@ import com.adobe.fre.FREContext;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -16,6 +17,8 @@ import java.util.List;
  */
 public class SystemCalls
 {
+    public static final String TAG = "RunApp";
+
     public static JSONArray getApplications(FREContext freContext, String type) {
         PackageManager pm = freContext.getActivity().getPackageManager();
         List<ApplicationInfo> installedApplications = pm.getInstalledApplications(PackageManager.GET_META_DATA);
@@ -84,10 +87,20 @@ public class SystemCalls
         }
     }
 
-    public static Boolean runApplication(FREContext freContext, String app_id) {
+    public static Boolean runApplication(FREContext freContext, String app_id, String json_params) {
         try {
-            Intent LaunchIntent = freContext.getActivity().getPackageManager().getLaunchIntentForPackage(app_id);
-            freContext.getActivity().startActivity(LaunchIntent);
+            Intent launchIntent = freContext.getActivity().getPackageManager().getLaunchIntentForPackage(app_id);
+
+            JSONObject jsonObject = new JSONObject(json_params);
+            Iterator<?> keys = jsonObject.keys();
+            while (keys.hasNext()) {
+                String key = (String) keys.next();
+                if (jsonObject.getString(key) instanceof String) {
+                    launchIntent.putExtra(key, jsonObject.getString(key));
+                }
+            }
+
+            freContext.getActivity().startActivity(launchIntent);
             return true;
         }
         catch (Exception e) {
