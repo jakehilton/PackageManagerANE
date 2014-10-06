@@ -19,7 +19,7 @@ public class RunApp implements FREFunction
         Log.d(TAG, "called");
 
         String app_name = "";
-        String json_params = "";
+        String json_params = "{}";
         try {
             app_name = freObjects[0].getAsString();
             json_params = freObjects[1].getAsString();
