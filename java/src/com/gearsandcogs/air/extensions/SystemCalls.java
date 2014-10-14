@@ -26,13 +26,15 @@ public class SystemCalls
         JSONArray ja = new JSONArray();
         for (ApplicationInfo appInfo : installedApplications) {
             Boolean add_app = false;
-            if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0 && type.equals("system")) {
+            Boolean system_app = (appInfo.flags & ApplicationInfo.FLAG_SYSTEM) !=0;
+
+            if (system_app && type.equals("system")) {
                 // IS A SYSTEM APP
                 add_app = true;
             }
 
-            if ((appInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0 && type.equals("user")) {
-                // APP WAS INSTALL AS AN UPDATE TO A BUILD-IN SYSTEM APP
+            if (!system_app && type.equals("user")) {
+                // IS A USER INSTALLED APP
                 add_app = true;
             }
 
