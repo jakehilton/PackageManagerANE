@@ -45,8 +45,18 @@ Use case is pretty simple::
             pm.addEventListener(PackageManagerEvent.ERROR_RUN_APP, runAppError);
             pm.getUserApps();
             pm.getSystemApps();
+            
+            // Launch with no data passed
             pm.runApp("com.google.android.GoogleCamera");
-            pm.runApp("com.google.android.GoogleCamera",<json_string>);
+            
+            var dataForApp:Object = {
+                name: "John Doe",
+                email: "1@1.com",
+                username: "jdoe"
+            };
+            // Laungh with data object being passed to app
+            pm.runApp("com.google.android.GoogleCamera", dataForApp);
+            
             pm.installApp("com.google.android.SomeApp");
             pm.uninstallApp("com.google.android.SomeApp");
         }
