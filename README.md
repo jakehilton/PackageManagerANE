@@ -54,7 +54,7 @@ Use case is pretty simple::
                 email: "1@1.com",
                 username: "jdoe"
             };
-            // Laungh with data object being passed to app
+            // Launch with data object being passed to app
             pm.runApp("com.google.android.GoogleCamera", dataForApp);
             
             pm.installApp("com.google.android.SomeApp");
