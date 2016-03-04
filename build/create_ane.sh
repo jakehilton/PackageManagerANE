@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ADT_PATH="/Users/jhilton/flex_sdks/4.6.0-air3.6/bin/adt "
+ADT_PATH="C:/AIR4.0_Flex4.6_Flash12/bin/adt "
 ANDROID_PLATFORM="-platform Android-ARM -C android . "
 DEFAULT_PLATFORM=" "
 IOS_PLATFORM="-platform iPhone-ARM -C ios . "
