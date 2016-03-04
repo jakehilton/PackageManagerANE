@@ -33,6 +33,11 @@ package com.gearsandcogs.air.extensions
             trace("installApp hit");
             extContext.call("InstallApp", app_id);
         }
+		
+		public function installLocalApp(app_id:String):void {
+            trace("installLocalApp hit");
+            extContext.call("InstallLocalApp", app_id);
+        }
 
         public function runApp(app_id:String, params:Object = null):void {
             trace("runApp hit");

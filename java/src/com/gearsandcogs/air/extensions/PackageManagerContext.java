@@ -19,6 +19,7 @@ public class PackageManagerContext extends FREContext
         functionMap.put("GetUserApps", new GetUserApps());
         functionMap.put("RunApp", new RunApp());
         functionMap.put("InstallApp", new InstallApp());
+        functionMap.put("InstallLocalApp", new InstallLocalApp());
         functionMap.put("UninstallApp", new UninstallApp());
         return functionMap;
     }
