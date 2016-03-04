@@ -40,6 +40,8 @@ Use case is pretty simple::
 
         public function PackageManagerService() {
             var pm:PackageManager = new PackageManager();
+			var folder:File = File.userDirectory.resolvePath("com.folder.apk");									
+			
             pm.addEventListener(PackageManagerEvent.GET_SYSTEM_APPS, systemAppsReturned);
             pm.addEventListener(PackageManagerEvent.GET_USER_APPS, userAppsReturned);
             pm.addEventListener(PackageManagerEvent.ERROR_RUN_APP, runAppError);
@@ -58,7 +60,10 @@ Use case is pretty simple::
             pm.runApp("com.google.android.GoogleCamera", dataForApp);
             
             pm.installApp("com.google.android.SomeApp");
-            pm.uninstallApp("com.google.android.SomeApp");
+            pm.uninstallApp("com.google.android.SomeApp");					
+								  	 						
+			//Install app from device													
+			pm.installLocalApp(folder.url + "/app.apk");
         }
 
         private function runAppError(e:PackageManagerEvent):void {
