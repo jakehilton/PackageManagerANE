@@ -5,10 +5,13 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.util.Log;
+
 import com.adobe.fre.FREContext;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 
@@ -82,6 +85,18 @@ public class SystemCalls
         try {
             Intent goToMarket = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?id=" + app_id));
             freContext.getActivity().startActivity(goToMarket);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
+    
+    public static Boolean installLocalApplication(FREContext freContext, String app_path) {
+        try {                	
+        	Intent promptInstall = new Intent(Intent.ACTION_VIEW)
+            .setDataAndType(Uri.parse("file://" + app_path),"application/vnd.android.package-archive");
+        	freContext.getActivity().startActivity(promptInstall); 
             return true;
         }
         catch (Exception e) {
